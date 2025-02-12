@@ -1,4 +1,4 @@
-import { StyleSheet, Image, Platform } from 'react-native';
+import { StyleSheet, Image, Platform, Pressable } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
@@ -6,6 +6,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
+import { Link } from 'expo-router';
 
 export default function TabTwoScreen() {
   return (
@@ -23,6 +24,19 @@ export default function TabTwoScreen() {
         <ThemedText type="title">Explore</ThemedText>
       </ThemedView>
       <ThemedText>This app includes example code to help you get started.</ThemedText>
+      
+      <Link href="/">
+        <ThemedText>default link</ThemedText>
+      </Link>
+      <Link href="/" data-active="true">
+        <ThemedText>active link</ThemedText>
+      </Link>
+      <Link href="/" data-active="true" asChild>
+        <Pressable>
+          <ThemedText>active link as child</ThemedText>
+        </Pressable>
+      </Link>
+
       <Collapsible title="File-based routing">
         <ThemedText>
           This app has two screens:{' '}
